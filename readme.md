@@ -1,6 +1,6 @@
 
 <div align='center'>
-![Elektronik](logo-elektronik.png)  
+<img src="logo-elektronik.png"> 
 </a>
   
 <a href='https://github.com/chroline/well_app/blob/main/LICENSE'>
@@ -25,15 +25,15 @@
   
 </a>
   
-<a href='https://projects.colegaw.in/well-app/research?utm_source=GitHub&utm_medium=readme&utm_campaign=well_app_readme'>
+<a href='byte-space.net'>
   
-<img src='https://img.shields.io/badge/RESEARCH-blue?style=for-the-badge'>
+<img src='http://194.163.143.144:3555/cdn/image/27-9-2021-17c25f8cd72.svg' width="50px" height="50px">
   
 </a>
   
 <a href='https://projects.colegaw.in/well-app/case-study?utm_source=GitHub&utm_medium=readme&utm_campaign=well_app_readme'>
   
-<img src='https://img.shields.io/badge/CASE STUDY-green?style=for-the-badge'>
+<img src='http://194.163.143.144:3555/cdn/image/27-9-2021-17c25fa0eaf.svg' width="50px" height="50px">
   
 </a>
   
