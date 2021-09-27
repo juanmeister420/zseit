@@ -21,7 +21,7 @@
   
 <a href='https://projects.colegaw.in/well-app?utm_source=GitHub&utm_medium=readme&utm_campaign=well_app_readme'>
   
-<img src='http://194.163.143.144:3555/cdn/image/27-9-2021-17c25f69a26.svg'>
+<img src='http://194.163.143.144:3555/cdn/image/27-9-2021-17c25f69a26.svg' width="50px" height="50px">
   
 </a>
   
