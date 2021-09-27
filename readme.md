@@ -1,14 +1,6 @@
 
 <div align='center'>
-<img src="logo-elektronik.png"> 
-</a>
-  
-<a href='https://github.com/chroline/well_app/blob/main/LICENSE'>
-  
-<img src='https://img.shields.io/github/license/chroline/well_app?style=for-the-badge'>
-  
-</a>
-  
+    <img src="logo-elektronik.png"> 
 </div>
 
 <br />
