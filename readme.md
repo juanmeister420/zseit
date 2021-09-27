@@ -1,11 +1,6 @@
-![Elektronik](logo-elektronik.png)
 
 <div align='center'>
-  
-<a href='https://github.com/chroline/well_app/releases'>
-  
-<img src='https://img.shields.io/github/v/release/chroline/well_app?color=%23FDD835&label=version&style=for-the-badge'>
-  
+![Elektronik](logo-elektronik.png)  
 </a>
   
 <a href='https://github.com/chroline/well_app/blob/main/LICENSE'>
@@ -22,11 +17,11 @@
 
 <div align='center'>
   
-### Quick Links
+### NAWIGACJA
   
 <a href='https://projects.colegaw.in/well-app?utm_source=GitHub&utm_medium=readme&utm_campaign=well_app_readme'>
   
-<img src='https://img.shields.io/badge/HOMEPAGE-gray?style=for-the-badge'>
+<img src='http://194.163.143.144:3555/cdn/image/27-9-2021-17c25f69a26.svg'>
   
 </a>
   
