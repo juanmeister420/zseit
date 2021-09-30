@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kalkulator</title>
+    <style>
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+:root {
+  --primary-color: #1ba3f2;
+  --black: #0d0d0d;
+  --gray-1: #dedede;
+  --gray-2: #cacaca;
+  --gray-3: #d2d2d2;
+  --red-1: #34bdeb;
+  --red-2: #1ba3f2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  background: linear-gradient(45deg, var(--red-1), var(--red-2));
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+}
+
+body,
+button,
+input {
+  font-family: "Poppins", sans-serif;
+}
+
+#content {
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  min-height: 100%;
+  padding: 2rem 0;
+}
+
+#calculator {
+  background: linear-gradient(
+    90deg,
+    var(--gray-1),
+    var(--gray-2),
+    var(--gray-3)
+  );
+  display: grid;
+  grid-template-rows: 2fr 1fr 3fr;
+  max-width: 23rem;
+  height: 35rem;
+  border-radius: 2rem;
+  filter: drop-shadow(1rem 1rem 1rem rgba(0, 0, 0, 0.2));
+}
+
+.keypad {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem 4rem;
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem;
+}
+
+.display input {
+  background: none;
+  width: 100%;
+  text-align: right;
+  padding: 0.1rem 0;
+  border: none;
+  outline: none;
+}
+
+.display input#history-expressions {
+  font-size: 0.8rem;
+}
+
+.display input#input-display {
+  font-size: 2rem;
+}
+
+.keypad__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem 1rem;
+}
+
+.keypad__grid button {
+  background: none;
+  color: var(--black);
+  font-size: 1.8rem;
+  width: 100%;
+  height: 3rem;
+  border: none;
+  border-radius: 0.5rem;
+  transition: color 0.1s ease, background-color 0.1s ease;
+}
+
+.keypad__grid button:hover {
+  background-color: var(--gray-3);
+  color: var(--primary-color);
+}
+
+.keypad__grid button:active {
+  color: #ff8585;
+  transform: scale(0.95);
+}
+
+.keypad__grid button.keypad__operators {
+  color: var(--primary-color);
+}
+
+.keypad__grid button.keypad__operators:active {
+  color: #ff8585;
+}
+
+.keypad__grid button#equals-button {
+  background-color: var(--primary-color);
+  color: var(--black);
+  filter: drop-shadow(0 1rem 0.8rem rgba(0, 0, 0, 0.3));
+}
+
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="calculator">
+          <div class="calculator__header"></div>
+          <div class="display">
+            <div class="display-history">
+              <input id="history-expressions" type="text" disabled />
+            </div>
+            <div class="display-results">
+              <input id="input-display" type="text" value="0" />
+            </div>
+          </div>
+          <div class="calculator__body">
+            <div class="keypad">
+              <div class="keypad__grid">
+                <button>C</button>
+                <button>(</button>
+                <button>)</button>
+                <button class="keypad__operators">&divide;</button>
+      
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button class="keypad__operators">&times;</button>
+      
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button class="keypad__operators">&minus;</button>
+      
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button class="keypad__operators">&plus;</button>
+      
+                <button>&loarr;</button>
+                <button>0</button>
+                <button>.</button>
+                <button class="keypad__operators" id="equals-button">&equals;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+<script>
+    const buttons = document.querySelectorAll('button');
+const inputDisplay = document.querySelector('#input-display');
+const historyExpressions = document.querySelector('#history-expressions');
+
+const operators = ['+', '-', '*', '/'];
+let repeatedOperators = [];
+const valuesButton = [
+  'C', '(', ')', '/',
+  '7', '8', '9', '*',
+  '4', '5', '6', '-',
+  '1', '2', '3', '+',
+  'x', '0', '.', '=',
+]
+
+buttons.forEach((button, i) => { button.value = valuesButton[i] });
+operators.forEach(operator1 => {
+  operators.forEach(operator2 => {
+    repeatedOperators.push(`${operator1}${operator2}`)
+  })
+})
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => getCharacter(button.value));
+})
+
+function getCharacter(digit) {
+  if (inputDisplay.value === '0' && !operators.find(op => op === digit) && digit !== 'C') {
+    inputDisplay.value = digit;
+  } else if (digit === 'C') {
+    inputDisplay.value = '0';
+  } else {
+    inputDisplay.value += digit;
+  }
+
+  checkCharacter(inputDisplay.value, digit);
+}
+
+function checkCharacter(stringValue, digit) {
+  const inputDisplayArr = stringValue.split('');
+
+  if (repeatedOperators.find(op => op === stringValue.slice(-2))) {
+    inputDisplayArr.splice(-2, 1);
+    inputDisplay.value = inputDisplayArr.join('');
+    latestOperators = '';
+  }
+
+  if (digit === '=') {
+    inputDisplayArr.splice(-1, 1);
+
+    solve(inputDisplayArr.join(''));
+  }
+
+  if (digit === 'x') {
+    inputDisplayArr.pop();
+    inputDisplayArr.pop();
+    inputDisplay.value = inputDisplayArr.join('');
+  }
+}
+
+function solve(expression) {
+  let result = eval(expression);
+
+  if (typeof result === 'number' && !Number.isInteger(result)) {
+    result = result.toFixed(5);
+  }
+
+  inputDisplay.value = result;
+  historyExpressions.value = `${expression} = `;
+}
+
+</script>
+</html>
