@@ -5,24 +5,24 @@ numer = 18
 def main():
     root = tk.Tk()
 
-    name_content = tk.StringVar()
-    name_content.set("Podaj Imię i Nazwisko")
-    division_content = tk.StringVar()
-    division_content.set("Podaj klasę")
+    dane_content = tk.StringVar()
+    dane_content.set("Podaj Imię i Nazwisko")
+    klasa_content = tk.StringVar()
+    klasa_content.set("Podaj klasę")
 
     config(root)
 
-    name = tk.Label(root, textvariable = name_content)
-    name.grid(column = numer, row = numer)
-    division = tk.Label(root, textvariable = division_content)
-    division.grid(column = numer, row = numer + 1)
+    dane = tk.Label(root, textvariable = dane_content)
+    dane.grid(column = numer, row = numer)
+    klasa = tk.Label(root, textvariable = klasa_content)
+    klasa.grid(column = numer, row = numer + 1)
 
-    name_input = tk.Entry(root, font = ("none", 16))
-    name_input.grid(column = numer + 1, row = numer)
-    division_input = tk.Entry(root, show="*", font = ("none", 16))
-    division_input.grid(column = numer + 1, row = numer + 1).
-    tk.Button(root, text = "Podaj dane", bg = "#931621", font = "Arial 16 bold", command = lambda: name_content.set(f"Cześć {name_input.get()}")).grid(column = numer + 2, row = numer) # Imie
-    tk.Button(root, text = "Podaj Klasę", bg = "red", font = "Verdana 16 italic", command = lambda: division_content.set(f"Jesteś z klasy {division_input.get()}")).grid(column = numer + 2, row = numer + 1)  # Klasa
+    dane_input = tk.Entry(root, font = ("none", 16))
+    dane_input.grid(column = numer + 1, row = numer)
+    klasa_input = tk.Entry(root, show="*", font = ("none", 16))
+    klasa_input.grid(column = numer + 1, row = numer + 1)
+    tk.Button(root, text = "Podaj dane", bg = "orage", font = "Verdana 16 bold", command = lambda: dane_content.set(f"Cześć {dane_input.get()}")).grid(column = numer + 2, row = numer) # Imie i nazwisko
+    tk.Button(root, text = "Podaj Klasę", bg = "blue", font = "Arial 16 italic", command = lambda: klasa_content.set(f"Jesteś z klasy {klasa_input.get()}")).grid(column = numer + 2, row = numer + 1)  # Klasa
 
     root.mainloop()
 
