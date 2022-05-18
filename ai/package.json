@@ -1,0 +1,25 @@
+{
+  "name": "batu-gunting-kertas-nuxt",
+  "version": "1.0.0",
+  "description": "Permainan Batu Gunting Kertas menggunakan kecerdasan buatan dengan memprediksi nomor yang akan muncul berdasarkan pola.",
+  "author": "Arif Ikhsanudin",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.2.0",
+    "nuxt": "^2.13.2",
+    "nuxt-i18n": "^6.13.8",
+    "nuxt-webfontloader": "^1.1.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^2.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
+  }
+}
