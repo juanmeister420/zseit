@@ -1,0 +1,27 @@
+{
+  "name": "fivem-launcher",
+  "version": "1.0.0",
+  "description": "Fivem Launcher, made with electron, by www.byte-space.net",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byte-space/fivem-launcher.git"
+  },
+  "author": "ByteSpace - Maciej Monkiewicz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/byte-space/fivem-launcher/issues"
+  },
+  "homepage": "https://github.com/byte-space/fivem-launcher#readme",
+  "devDependencies": {
+    "electron": "^16.0.2"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.0.1",
+    "custom-electron-titlebar": "^3.2.7"
+  }
+}
