@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+}
+#page{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+span{
+    width: 400px;
+    height: 70px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 10px;
+}

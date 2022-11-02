@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+}
+#page{
+    border: 1px solid black;
+    width: 600px;
+    text-align: center;
+    padding: 20px;
+}
+textarea{
+    width: 300px;
+    height: 100px;
+}
