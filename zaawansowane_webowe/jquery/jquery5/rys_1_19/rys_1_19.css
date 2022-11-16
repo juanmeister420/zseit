@@ -1,0 +1,28 @@
+.prostokat{
+    border: 1px solid black;
+    width: 200px;
+    height: 150px;
+    background: blue;
+    margin-left:100px;
+    float:left;
+    position: absolute;
+}
+div{
+    clear: both;
+}
+
+#page{
+        border: 1px solid black;
+        width: 70%;
+        height: 200px;
+        margin-left: 250px;
+        padding: 30px;
+        text-align: center;
+}
+#drugi{
+    margin-left: 550px;
+}
+
+#trzeci{
+    margin-left: 1000px;
+}
