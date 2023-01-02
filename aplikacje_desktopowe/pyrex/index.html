@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kalkulator Walutowy by Krystian Baniukiewicz</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                Kalkulator Walutowy 💵
+            </h1>
+            <p class="subtitle">
+                Obecny kurs EURO: <b id="euro">⏳</b>
+            </p>
+            <div class="field">
+                <label class="label">Kwota w PLN</label>
+                <div class="control">
+                    <input class="input" type="number" placeholder="Kwota w PLN" id="pln">
+                </div>
+            </div>
+            <!-- create result text with id resultbox -->
+            <p id="result_box" style="display: none;">
+                Wynik: <b id="result_text">0</b> €
+            </p> 
+            <button class="button is-primary" id="calculate">Przelicz</button>
+
+    </section>
+
+    <script>
+        const calculate = $('#calculate');
+        
+        function getExchange() {
+            let pln = $('#pln').val();
+            let result = pln / $('#euro').html();
+
+            if (pln == '' || pln == 0 || pln < 0) {
+                $('#result_box').hide();
+                alert('Wprowadź poprawną kwotę!');
+            } else {
+                $('#result_box').show();
+                $('#result_text').html(result.toFixed(2));
+            }
+            
+        }
+        
+        calculate.click(function () {
+            getExchange();
+        });
+
+
+        function getEuro() {
+            $.ajax({
+                url: 'https://api.nbp.pl/api/exchangerates/rates/a/eur/?format=json',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    $('#euro').html(data.rates[0].mid.toFixed(2));
+                }
+            });
+        }
+
+        // call function every 5 seconds
+        setInterval(getEuro, 5000);
+
+        // call getEuro before loading page
+        getEuro();
+
+    </script>
+</body>
+
+</html>
