@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <!-- link jquery -->
+</head>
+
+<body>
+
+  <div style="
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+
+
+  ">
+    <div class="mt-3">
+      <h1>Pogoda na dziś 😎☢🎶</h1>
+    </div>
+    <br>
+    <div class="mb-3 mt-3 display-flex justify-content-center align-items-center">
+
+      <input type="text" class="form-control" id="miasto" placeholder="wpisz swoje miasto" style="width: 40%;"> <br>
+      <button type="button" class="btn btn-primary" id="button">Sprawdź pogodę</button>
+
+    </div>
+    <div class="mt3" style="display: none;" id="result">
+
+    </div>
+  </div>
+  <script>
+    $('#button').click(function () {
+      getWeather();
+    });
+
+
+    function getWeather() {
+      let miasto = $('#miasto').val();
+      let url = `http://api.weatherapi.com/v1/current.json?key=908e6a60c9d44de3b65201727230201&q=${miasto}&aqi=no`;
+      $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          console.log(data);
+          $('#result').html(`
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">${data.location.name}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">${data.location.country}</h6>
+              <p class="card-text">Temperatura: ${data.current.temp_c}°C</p>
+              <p class="card-text">Wilgotność: ${data.current.humidity}%</p>
+              <p class="card-text">Ciśnienie: ${data.current.pressure_mb}hPa</p>
+              <p class="card-text">Opady: ${data.current.precip_mm}mm</p>
+              <p class="card-text">Odczuwalna temperatura: ${data.current.feelslike_c}°C</p>
+              <p class="card-text">Zachmurzenie: ${data.current.cloud}%</p>
+              <p class="card-text">Widoczność: ${data.current.vis_km}km</p>
+              <p class="card-text">Porywisty wiatr: ${data.current.gust_kph}km/h</p>
+              <p class="card-text">Ostatnia aktualizacja: ${data.current.last_updated}</p>
+              <p class="card-text">Godzina: ${data.location.localtime}</p>
+              <p class="card-text">Czas: ${data.location.localtime_epoch}</p>
+              <p class="card-text">Strefa czasowa: ${data.location.tz_id}</p>
+            </div>
+          </div>
+          `);
+          $('#result').show();
+        },
+        error: function (error) {
+          console.log(error);
+        }
+      });
+    }
+
+
+
+
+  </script>
+
+</body>
+
+</html>
