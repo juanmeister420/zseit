@@ -1,0 +1,6 @@
+Kiedy: 2022 grudnia 09 11:46 
+Waluta  Ile   Sprzedaż       Skup
+USD       1     2,8685    002,8245
+EUR       1     4,1244    004,0704
+CHF       1     2,7730    002,7290
+JPY     100     3,0859    003,0239
